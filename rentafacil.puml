@@ -1,0 +1,70 @@
+@startuml RentaFacil
+
+class Vehiculo
+{
+    - Placa noPlaca
+    - Marca marca
+    - Modelo modelo
+    - PrecioDia precioUnitarioDia
+}
+
+class Auto
+class Moto
+class Camioneta
+
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+Vehiculo <|-- Camioneta
+
+class Placa
+class Marca
+class Modelo
+class PrecioDia
+
+Vehiculo *-- Placa
+Vehiculo *-- Marca
+Vehiculo *-- Modelo
+Vehiculo *-- PrecioDia
+
+class Cliente{
+    Id idCliente
+    Nombre nombreCliente
+    DNI dniCliente
+    NumeroTelefono noTelefonoCliente
+    Alquiler alquiler[3]
+}
+class Id
+class Nombre
+class DNI
+class NumeroTelefono
+
+
+Cliente *-- Id
+Cliente *-- Nombre
+Cliente *-- DNI
+Cliente *-- NumeroTelefono
+Cliente *-- LimiteRenta
+
+class Alquiler
+{
+    CodigoAlquiler idAlquiler
+    FechaInicio fechaInicioAlquiler
+    FechaFinal fechaFinalAlquiler
+    CostoTotal costoTotalAlquier
+    EstatusAlquiler estatusAlquiler
+}
+class CodigoAlquiler
+class FechaInicio
+class FechaFinal
+class CostoTotal
+class EstatusAlquiler
+
+Alquiler *-- CodigoAlquiler
+Alquiler *-- FechaInicio
+Alquiler *-- FechaFinal
+Alquiler *-- CostoTotal
+Alquiler *-- EstatusAlquiler
+Cliente "1"  o-- "0..3" Alquiler
+
+
+@enduml
